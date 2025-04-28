@@ -20,13 +20,15 @@ public sealed class ApplicationDbContext : IdentityDbContext<AppUser,AppRole,Gui
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.Entity<IdentityUserRole<Guid>>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.RoleId });
+        });
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         builder.Ignore<IdentityUserClaim<Guid>>();
         builder.Ignore<IdentityRoleClaim<Guid>>();
         builder.Ignore<IdentityUserLogin<Guid>>();
         builder.Ignore<IdentityUserToken<Guid>>();
 
-        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-        base.OnModelCreating(builder);
     }
 }
