@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using eAppointmentServer.Domain.Repositories.GenericRepositories;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace eAppointmentServer.Domain.Repositories.GenericRepositories;
+namespace eAppointmentServer.Infrastructure.Repositories.GenericRepositories;
 
 public class Repository<TEntity, TContext> : IRepository<TEntity> where TEntity : class where TContext : DbContext
 {
