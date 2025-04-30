@@ -22,7 +22,7 @@ internal sealed class JwtProvider : IJwtProvider
 
         DateTime expires = DateTime.Now.AddHours(2);
 
-        SymmetricSecurityKey symmetricSecurityKey = new(Encoding.UTF8.GetBytes("B277318FF6C9C942F6ED569B5EMRE"));
+        SymmetricSecurityKey symmetricSecurityKey = new(Encoding.UTF8.GetBytes("www.eappointment.net www.eappointment.net www.eappointment.net Emre  Kaya  www.eappointment.net www.eappointment.net www.eappointment.net Emre  Kaya "));
         SigningCredentials signingCredentials = new(symmetricSecurityKey, SecurityAlgorithms.HmacSha512);
 
         JwtSecurityToken jwtSecurityToken = new(

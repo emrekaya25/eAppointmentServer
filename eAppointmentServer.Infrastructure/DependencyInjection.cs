@@ -23,7 +23,7 @@ public static class DependencyInjection
         {
             action.Password.RequiredLength = 1;
             action.Password.RequireUppercase = false;
-            action.Password.RequireLowercase = true;
+            action.Password.RequireLowercase = false;
             action.Password.RequireNonAlphanumeric = false;
             action.Password.RequireDigit = false;
         }).AddEntityFrameworkStores<ApplicationDbContext>();

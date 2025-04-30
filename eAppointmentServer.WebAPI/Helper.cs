@@ -12,13 +12,20 @@ public static class Helper
             var userManager = scoped.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
             if (!userManager.Users.Any())
             {
-                await userManager.CreateAsync(new()
+                AppUser user = new AppUser()
                 {
+                    Id = Guid.NewGuid(),
                     FirstName = "Emre",
                     LastName = "Kaya",
                     Email = "emre@gmail.com",
                     UserName = "admin",
-                }, "1");
+                    EmailConfirmed = false,
+                    PhoneNumberConfirmed = false,
+                    TwoFactorEnabled = false,
+                    LockoutEnabled = false,
+                    AccessFailedCount = 5
+                };
+                var isThat = await userManager.CreateAsync(user,"1");
             }
         }
     }
