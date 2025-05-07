@@ -13,6 +13,11 @@ internal sealed class CreatePatientCommandHandler(
 {
     public async Task<Result<string>> Handle(CreatePatientCommand request, CancellationToken cancellationToken)
     {
+        if (patientRepository.Any(x => x.IdentityNumber == request.IdentityNumber))
+        {
+            return Result<string>.Failure("This identity number already taken");
+        }
+
         Patient patient = new()
         {
             FirstName = request.FirstName,

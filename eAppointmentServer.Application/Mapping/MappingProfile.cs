@@ -26,12 +26,12 @@ public sealed class MappingProfile : Profile
         CreateMap<UpdatePatientCommand, Patient>()
             .ForMember(dest => dest.Gender, src =>
             {
-                src.MapFrom(x => DepartmentEnum.FromValue(x.GenderValue));
+                src.MapFrom(x => GenderEnum.FromValue(x.GenderValue));
             });
         CreateMap<Patient, UpdatePatientCommand>()
             .ForMember(dest => dest.GenderValue, src =>
             {
-                src.MapFrom(x => DepartmentEnum.FromValue(x.Gender));
+                src.MapFrom(x => GenderEnum.FromValue(x.Gender));
             });
     }
 }

@@ -12,7 +12,7 @@ public sealed class Patient
     public string FirstName { get; set; } = default!;
     public string LastName { get; set; } = default!;
     public string FullName => string.Join(" ", FirstName, LastName);
-    public GenderEnum? Gender { get; set; }
+    public GenderEnum? Gender { get; set; } = GenderEnum.NoChoice;
     public IEnumerable<Appointment>? Appointments { get; set; }
     public string IdentityNumber { get; set; } = default!;
     public string City { get; set; } = default!;
